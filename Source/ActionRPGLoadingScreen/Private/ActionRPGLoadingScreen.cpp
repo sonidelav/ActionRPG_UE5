@@ -21,7 +21,8 @@ struct FRPGLoadingScreenBrush : public FSlateDynamicImageBrush//, public FGCObje
 	{
 		if (UObject* CachedResourceObject = GetResourceObject())
 		{
-			Collector.AddReferencedObject(CachedResourceObject);
+			TObjectPtr<UObject> Ptr(CachedResourceObject);
+			Collector.AddReferencedObject(Ptr);
 		}
 	}
 };
